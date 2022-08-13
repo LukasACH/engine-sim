@@ -41,7 +41,7 @@ namespace es_script {
             CylinderBank::Parameters params = m_parameters;
             params.CylinderCount = (int)m_cylinders.size();
             params.Index = index;
-            params.Crankshaft = crankshaft;
+            params.crankshaft = crankshaft;
 
             cylinderBank->initialize(params);
 
