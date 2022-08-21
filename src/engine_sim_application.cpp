@@ -214,7 +214,7 @@ void EngineSimApplication::initialize() {
     for (int i = 0; i < m_iceEngine->getExhaustSystemCount(); ++i) {
         ImpulseResponse *response = m_iceEngine->getExhaustSystem(i)->getImpulseResponse();
 
-        ysWindowsAudioWaveFile waveFile;
+        ysAudioWaveFile waveFile;
         waveFile.OpenFile(response->getFilename().c_str());
         waveFile.InitializeInternalBuffer(waveFile.GetSampleCount());
         waveFile.FillBuffer(0);
