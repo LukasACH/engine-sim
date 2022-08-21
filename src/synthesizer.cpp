@@ -64,7 +64,7 @@ void Synthesizer::initialize(const Parameters &p) {
         m_filters[i].InputDcFilter.setCutoffFrequency(10.0);
         m_filters[i].InputDcFilter.m_dt = 1 / m_audioSampleRate;
 
-        m_filters[i].JitterFilter.initialize(
+        m_filters[i].jitterFilter.initialize(
             10,
             m_audioParameters.InputSampleNoiseFrequencyCutoff,
             m_audioSampleRate);
@@ -165,7 +165,7 @@ void Synthesizer::writeInput(const double *data) {
     }
 
     for (int i = 0; i < m_inputChannelCount; ++i) {
-        m_filters[i].JitterFilter.setJitterScale(m_audioParameters.InputSampleNoise);
+        m_filters[i].jitterFilter.setJitterScale(m_audioParameters.InputSampleNoise);
 
         RingBuffer<float> &buffer = m_inputChannels[i].Data;
         const float lastInputSample = m_inputChannels[i].LastInputSample;
@@ -181,7 +181,7 @@ void Synthesizer::writeInput(const double *data) {
             const double sample = lastInputSample * (1 - f) + data[i] * f;
 
             const float jitteredSample =
-                m_filters[i].JitterFilter.fast_f(static_cast<float>(sample));
+                m_filters[i].jitterFilter.fast_f(static_cast<float>(sample));
             buffer.write(jitteredSample);
         }
 

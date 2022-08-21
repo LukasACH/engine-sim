@@ -33,7 +33,7 @@ void CylinderHead::initialize(const Parameters &params) {
     m_intakes = new Intake *[params.Bank->getCylinderCount()];
 
     m_bank = params.Bank;
-    m_valvetrain = params.Valvetrain;
+    m_valvetrain = params.valvetrain;
     m_exhaustPortFlow = params.ExhaustPortFlow;
     m_intakePortFlow = params.IntakePortFlow;
     m_combustionChamberVolume = params.CombustionChamberVolume;
