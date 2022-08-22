@@ -65,6 +65,9 @@ namespace units {
     static constexpr double MPa = Pa * 1000000.0;
     static constexpr double atm = 101.325 * kPa;
 
+    static constexpr double mBar = Pa * 100.0;
+    static constexpr double Bar = mBar * 1000.0;
+
     static constexpr double psi = lbf / (inch * inch);
     static constexpr double psig = psi;
     static constexpr double inHg = Pa * 3386.3886666666713;
